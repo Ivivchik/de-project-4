@@ -14,7 +14,6 @@ INSERT INTO dds.dm_deliveries(delivery_key, courier_id, address_id, timestamp_id
                                        AND '{{ next_execution_date.in_timezone('Europe/Moscow').strftime('%Y-%m-%d %H:%M:%S') }}'
                    AND dc.expiration_date = '2999-12-31 23:59:59'
   ON CONFLICT (delivery_key) 
-DO UPDATE SET delivery_key = excluded.delivery_key,
-              courier_id = excluded.courier_id,
+DO UPDATE SET courier_id = excluded.courier_id,
               address_id = excluded.address_id,
               timestamp_id = excluded.timestamp_id;

@@ -1,7 +1,8 @@
-CREATE TABLE IF NOT EXISTS {{ params.table_name }}(
+CREATE TABLE IF NOT EXISTS dds.dm_couriers(
     id              SERIAL      PRIMARY KEY,
     object_id       VARCHAR     NOT NULL,
-    "name"          VARCHAR     NOT NULL,
+    first_name      VARCHAR     NOT NULL,
+    last_name       VARCHAR     NOT NULL,
     effective_date  TIMESTAMP   NOT NULL,
     expiration_date TIMESTAMP   NOT NULL
 );

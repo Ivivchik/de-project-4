@@ -9,6 +9,5 @@ INSERT INTO dds.dm_orders(order_key, restaurant_id, timestamp_id)
                               AND '{{ next_execution_date.in_timezone('Europe/Moscow').strftime('%Y-%m-%d %H:%M:%S') }}'
           AND dr.expiration_date = '2999-12-31 23:59:59'
   ON CONFLICT (order_key)
-DO UPDATE SET order_key = excluded.order_key,
-              restaurant_id = excluded.restaurant_id,
+DO UPDATE SET restaurant_id = excluded.restaurant_id,
               timestamp_id = excluded.timestamp_id;
